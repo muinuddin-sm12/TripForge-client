@@ -16,8 +16,10 @@ const AuthProvider = ({ children }) => {
   const successNotify = () => toast.success("User Login Successfully!");
   const errorNotify = () => toast.error("Invalid email or password!");
   const [user, setUser] = useState(null);
+  const [loading, setLoading] = useState(true)
   // create user
   const userRegister = (email, password) => {
+    setLoading(true)
     return createUserWithEmailAndPassword(auth, email, password).then(
       (result) => {
         const user = result.user;
@@ -30,6 +32,7 @@ const AuthProvider = ({ children }) => {
   };
   // login user
   const userLogin = (email, password) => {
+    setLoading(true)
     return signInWithEmailAndPassword(auth, email, password)
       .then(() => {
         successNotify();
@@ -42,12 +45,13 @@ const AuthProvider = ({ children }) => {
   };
   // logout user
   const logOut = () => {
+    setLoading(true)
     setUser(null);
     return signOut(auth);
   };
 //   update user
 const updateUserProfile = (name, url) => {
-    // setLoading(true)
+    setLoading(true)
     return updateProfile(auth.currentUser, {
       displayName: name,
       photoURL: url,
@@ -57,10 +61,10 @@ const updateUserProfile = (name, url) => {
     const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
       if (currentUser) {
         setUser(currentUser);
-        // setLoading(false);
+        setLoading(false);
       } else {
         setUser(null);
-        // setLoading(false);
+        setLoading(false);
       }
     });
     return () => {
@@ -72,7 +76,9 @@ const updateUserProfile = (name, url) => {
     userRegister,
     userLogin,
     logOut,
-    updateUserProfile
+    updateUserProfile,
+    loading,
+    
   };
   return (
     <div>

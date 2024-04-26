@@ -41,13 +41,13 @@ const Navbar = () => {
           {isOpen && (
             <ul
               tabIndex={0}
-              className="menu menu-sm dropdown-content mt-3 z-[100] p-4 shadow bg-base-100 rounded-box w-40"
+              className="menu menu-sm space-y-2 dropdown-content mt-3 z-[100] p-4 shadow bg-base-100 rounded-box w-40"
             >
               <NavLink
                 to="/"
                 className={({ isActive }) =>
                   isActive
-                    ? "text-[#03BD5E] border-b-2 border-b-[#03BD5E] px-2 py-1"
+                    ? "text-[#03BD5E] border border-[#03BD5E] rounded-md px-2 py-1"
                     : "text-black"
                 }
               >
@@ -57,7 +57,7 @@ const Navbar = () => {
                 to="/all-tourists-spot"
                 className={({ isActive }) =>
                   isActive
-                    ? "text-[#03BD5E] border-b-2 border-b-[#03BD5E] px-2 py-1"
+                    ? "text-[#03BD5E] border border-[#03BD5E] rounded-md px-2 py-1"
                     : "text-black"
                 }
               >
@@ -69,7 +69,7 @@ const Navbar = () => {
                     to="/add-tourists-spot"
                     className={({ isActive }) =>
                       isActive
-                        ? "text-[#03BD5E] border-b-2 border-b-[#03BD5E] px-2 py-1"
+                        ? "text-[#03BD5E] border border-[#03BD5E] rounded-md px-2 py-1"
                         : "text-black"
                     }
                   >
@@ -83,7 +83,7 @@ const Navbar = () => {
                     to="/my-list"
                     className={({ isActive }) =>
                       isActive
-                        ? "text-[#03BD5E] border-b-2 border-b-[#03BD5E] px-2 py-1"
+                        ? "text-[#03BD5E] border border-[#03BD5E] rounded-md px-2 py-1"
                         : "text-black"
                     }
                   >
@@ -157,15 +157,26 @@ const Navbar = () => {
             </div>
           </div>
         ) : (
-          <Link to="/login">
-            <button className="btn btn-sm text-base text-white bg-[#00BA9C]">
+          <div className="flex items-center gap-3">
+            <Link to="/login">
+            <button className="btn text-base text-white bg-[#00BA9C]">
               Login
             </button>
           </Link>
+            <Link to="/register">
+            <button className="btn  text-base text-white bg-[#00BA9C]">
+              Register
+            </button>
+          </Link>
+          </div>
         )}
       </div>
       {
-        openProfile && <DropDownProfile />
+        openProfile && (
+          <div onMouseLeave={()=> setOpenProfile(false)}>
+            <DropDownProfile />
+          </div>
+        )
       }
     </div>
   );

@@ -16,7 +16,7 @@ const Banner = () => {
         modules={[Autoplay, Pagination, Navigation]}
       >
         <SwiperSlide>
-          <div className="slide slide1 h-[20vh] md:h-[35vh] lg:h-[50vh]">
+          <div className="slide slide1 h-[25vh] md:h-[40vh] lg:h-[60vh]">
             <h1
               data-aos="fade-up"
               data-aos-duration="1000"
@@ -42,7 +42,7 @@ const Banner = () => {
           </div>
         </SwiperSlide>
         <SwiperSlide>
-          <div className="slide slide2 h-[20vh] md:h-[35vh] lg:h-[50vh]">
+          <div className="slide slide2 h-[25vh] md:h-[40vh] lg:h-[60vh]">
             <h1
               data-aos="fade-up"
               data-aos-duration="1000"
@@ -68,7 +68,7 @@ const Banner = () => {
           </div>
         </SwiperSlide>
         <SwiperSlide>
-          <div className="slide slide3 h-[20vh] md:h-[35vh] lg:h-[50vh]">
+          <div className="slide slide3 h-[25vh] md:h-[40vh] lg:h-[60vh]">
             <h1
               data-aos="fade-up"
               data-aos-duration="1000"
@@ -94,7 +94,7 @@ const Banner = () => {
           </div>
         </SwiperSlide>
         <SwiperSlide>
-          <div className="slide slide4 h-[20vh] md:h-[35vh] lg:h-[50vh]">
+          <div className="slide slide4 h-[25vh] md:h-[40vh] lg:h-[60vh]">
             <h1
               data-aos="fade-up"
               data-aos-duration="1000"
