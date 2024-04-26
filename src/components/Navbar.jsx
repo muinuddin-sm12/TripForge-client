@@ -40,7 +40,7 @@ const Navbar = () => {
                 to="/"
                 className={({ isActive }) =>
                   isActive
-                    ? "text-[#03BD5E] border border-[#03BD5E] px-2 rounded-md py-1"
+                    ? "text-[#03BD5E] border-b-2 border-b-[#03BD5E] px-2 py-1"
                     : "text-black"
                 }
               >
@@ -50,7 +50,7 @@ const Navbar = () => {
                 to="/all-tourists-spot"
                 className={({ isActive }) =>
                   isActive
-                    ? "text-[#03BD5E] border border-[#03BD5E] px-2 rounded-md py-1"
+                    ? "text-[#03BD5E] border-b-2 border-b-[#03BD5E] px-2 py-1"
                     : "text-black"
                 }
               >
@@ -63,7 +63,7 @@ const Navbar = () => {
                     to="/add-tourists-spot"
                     className={({ isActive }) =>
                       isActive
-                        ? "text-[#03BD5E] border border-[#03BD5E] px-2 rounded-md py-1"
+                        ? "text-[#03BD5E] border-b-2 border-b-[#03BD5E] px-2 py-1"
                         : "text-black"
                     }
                   >
@@ -77,7 +77,7 @@ const Navbar = () => {
                     to="/my-list"
                     className={({ isActive }) =>
                       isActive
-                        ? "text-[#03BD5E] border border-[#03BD5E] px-2 rounded-md py-1"
+                        ? "text-[#03BD5E] border-b-2 border-b-[#03BD5E] px-2 py-1"
                         : "text-black"
                     }
                   >
@@ -101,7 +101,7 @@ const Navbar = () => {
             to="/"
             className={({ isActive }) =>
               isActive
-                ? "text-[#03BD5E] border border-[#03BD5E] px-2 rounded-md py-1"
+                ? "text-[#03BD5E] border-b-2 border-b-[#03BD5E] px-2 py-1"
                 : "text-black"
             }
           >
@@ -111,7 +111,7 @@ const Navbar = () => {
             to="/all-tourists-spot"
             className={({ isActive }) =>
               isActive
-                ? "text-[#03BD5E] border border-[#03BD5E] px-2 rounded-md py-1"
+                ? "text-[#03BD5E] border-b-2 border-b-[#03BD5E] px-2 py-1"
                 : "text-black"
             }
           >
@@ -121,7 +121,7 @@ const Navbar = () => {
             to="/add-tourists-spot"
             className={({ isActive }) =>
               isActive
-                ? "text-[#03BD5E] border border-[#03BD5E] px-2 rounded-md py-1"
+                ? "text-[#03BD5E] border-b-2 border-b-[#03BD5E] px-2 py-1"
                 : "text-black"
             }
           >
@@ -131,7 +131,7 @@ const Navbar = () => {
             to="/my-list"
             className={({ isActive }) =>
               isActive
-                ? "text-[#03BD5E] border border-[#03BD5E] px-2 rounded-md py-1"
+                ? "text-[#03BD5E] border-b-2 border-b-[#03BD5E] px-2 py-1"
                 : "text-black"
             }
           >

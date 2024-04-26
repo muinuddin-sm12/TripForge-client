@@ -1,6 +1,20 @@
-import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { AuthContext } from "../components/AuthProvider";
 
 const Login = () => {
+
+  const location = useLocation();
+  const navigate = useNavigate();
+  const from = location?.state || "/";
+  const {userLogin} = useContext(AuthContext)
+  const handleLogin = async (e) => {
+    e.preventDefault();
+    const email = e.target.email.value;
+    const password = e.target.password.value;
+    await userLogin(email, password);
+    navigate(from);
+  };
   return (
     <div
       data-aos="zoom-in"
@@ -8,7 +22,7 @@ const Login = () => {
     >
       <div className="hero">
         <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-          <form className="card-body">
+          <form onSubmit={handleLogin} className="card-body">
             <input
               type="email"
               name="email"

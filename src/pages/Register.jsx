@@ -1,11 +1,45 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { IoMdEye } from "react-icons/io";
 import { IoMdEyeOff } from "react-icons/io";
+import { AuthContext } from "../components/AuthProvider";
+import { toast } from "react-toastify";
 
 
 const Register = () => {
     const [showPassword, setShowPassword] = useState(false);
+    const notify = () => toast.success("Registered Successfully!");
+    const {userRegister} = useContext(AuthContext);
+
+    const handleRegister = async (e) => {
+      e.preventDefault();
+      // const name = e.target.name.value;
+      const email = e.target.email.value;
+      // const url = e.target.url.value;
+      const password = e.target.password.value;
+  
+      // if (password.length < 6) {
+      //   setError("Password must be at least 6 Character!");
+      //   return;
+      // } else if (!/^(?=.*[A-Z]).+$/.test(password)) {
+      //   setError("Password must have an Uppercase letter!");
+      //   return;
+      // } else if (!/^(?=.*[a-z]).+$/.test(password)) {
+      //   setError("Password must have an Lowercase letter");
+      //   return;
+      // }
+      // setError("");
+  
+      try {
+        await userRegister(email, password);
+        notify();
+        // await updateUserProfile(name, url);
+        // navigate(from);
+        // await logOut();
+      } catch (error) {
+        console.log(error.message);
+      }
+    };
     return (
         <div
       data-aos="zoom-in"
@@ -13,7 +47,7 @@ const Register = () => {
     >
       <div className="hero">
         <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-          <form  className="card-body">
+          <form onSubmit={handleRegister} className="card-body">
             <input
               type="text"
               name="name"
