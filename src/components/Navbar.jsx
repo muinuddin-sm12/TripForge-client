@@ -1,10 +1,19 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
+import { AuthContext } from "./AuthProvider";
+import { toast } from "react-toastify";
 
 const Navbar = () => {
+  const { user, logOut } = useContext(AuthContext);
+  const notify = () => toast.warning("Successfully LogOut!");
+  console.log(user);
   const [isOpen, setIsOpen] = useState(false);
   const toggleDropdown = () => {
     setIsOpen(!isOpen);
+  };
+  const handleLogOut = async () => {
+    await logOut();
+    notify();
   };
   return (
     <div className="navbar bg-base-100 max-w-[1536px] mx-auto px-4 md:px-10 py-5 mb-2">
@@ -56,8 +65,7 @@ const Navbar = () => {
               >
                 All Tourists Spot
               </NavLink>
-              {/* Add other NavLink items here */}
-              {
+              {user &&
                 <>
                   <NavLink
                     to="/add-tourists-spot"
@@ -71,7 +79,7 @@ const Navbar = () => {
                   </NavLink>
                 </>
               }
-              {
+              {user &&
                 <>
                   <NavLink
                     to="/my-list"
@@ -88,10 +96,7 @@ const Navbar = () => {
             </ul>
           )}
         </div>
-        <Link
-          to="/"
-          className="text-2xl font-bold"
-        >
+        <Link to="/" className="text-2xl font-bold">
           <span className="text-[#03BD5E]">Trip</span>Forge
         </Link>
       </div>
@@ -117,7 +122,7 @@ const Navbar = () => {
           >
             All Tourists Spot
           </NavLink>
-          <NavLink
+          {user&& <NavLink
             to="/add-tourists-spot"
             className={({ isActive }) =>
               isActive
@@ -126,8 +131,8 @@ const Navbar = () => {
             }
           >
             Add Tourists Spot
-          </NavLink>
-          <NavLink
+          </NavLink>}
+          {user && <NavLink
             to="/my-list"
             className={({ isActive }) =>
               isActive
@@ -136,32 +141,35 @@ const Navbar = () => {
             }
           >
             My List
-          </NavLink>
+          </NavLink>}
         </ul>
       </div>
       <div className="navbar-end">
-        {/* <div className="flex items-center gap-2">
-          <div
-            className="w-12 h-12 rounded-full flex justify-center items-center  border-2 tooltip  tooltip-bottom"
-            data-tip="user name not found"
-          >
-            <img
-              className="rounded-full"
-              src="https://i.ibb.co/BwsjNp3/1057231.png"
-            />
+        {user ? (
+          <div className="flex items-center gap-2">
+            <div
+              className="w-12 h-12 rounded-full flex justify-center items-center  border-2 tooltip  tooltip-bottom"
+              data-tip={user?.displayName || "user name not found"}
+            >
+              <img
+                className="rounded-full"
+                src={user?.photoURL || "https://i.ibb.co/BwsjNp3/1057231.png"}
+              />
+            </div>
+            <button
+              onClick={handleLogOut}
+              className="btn btn-sm text-white text-base bg-[#00BA9C]"
+            >
+              Logout
+            </button>
           </div>
-          <button
-            //   onClick={handleLogOut}
-            className="btn btn-sm text-white text-base bg-[#00BA9C]"
-          >
-            Logout
-          </button>
-        </div> */}
-        <Link to="/login">
-          <button className="btn btn-sm text-base text-white bg-[#00BA9C]">
-            Login
-          </button>
-        </Link>
+        ) : (
+          <Link to="/login">
+            <button className="btn btn-sm text-base text-white bg-[#00BA9C]">
+              Login
+            </button>
+          </Link>
+        )}
       </div>
     </div>
   );

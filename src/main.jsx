@@ -13,6 +13,8 @@ import AllTourist from './pages/AllTourist.jsx';
 import AddTourist from './pages/AddTourist.jsx';
 import MyList from './pages/MyList.jsx';
 import AuthProvider from './components/AuthProvider.jsx';
+import { ToastContainer } from 'react-toastify';
+import PrivateRoute from './components/PrivateRoute.jsx';
 const router = createBrowserRouter([
   {
     path: "/",
@@ -36,11 +38,19 @@ const router = createBrowserRouter([
       },
       {
         path: '/add-tourists-spot',
-        element: <AddTourist/>
+        element: (
+          <PrivateRoute>
+            <AddTourist/>
+          </PrivateRoute>
+        )
       },
       {
         path: '/my-list',
-        element: <MyList/>
+        element: (
+          <PrivateRoute>
+            <MyList/>
+          </PrivateRoute>
+        )
       }
     ]
   },
@@ -50,6 +60,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <AuthProvider>
     <RouterProvider router={router} />
+    <ToastContainer autoClose={2002} position='top-center'/>
     </AuthProvider>
   </React.StrictMode>,
 )

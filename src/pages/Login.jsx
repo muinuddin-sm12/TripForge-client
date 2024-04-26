@@ -53,7 +53,7 @@ const Login = () => {
             </div>
 
             <input
-              className="btn bg-sky-400 text-white text-base"
+              className="btn bg-[#00BA9C] text-white text-base"
               type="submit"
               value="Login"
             />
@@ -62,13 +62,13 @@ const Login = () => {
               <h3 className="font-medium">Or login with,</h3>
               <button
                 // onClick={() => handleSocialLogin(googleLogin)}
-                className="btn btn-link btn-sm bg-black text-sky-400"
+                className="btn btn-link btn-sm bg-[#00BA9C] hover:text-[#03BD5E] text-white"
               >
                 Google
               </button>
               <button
                 // onClick={() => handleSocialLogin(githubLogin)}
-                className="btn  btn-link btn-sm bg-black text-sky-400"
+                className="btn  btn-link btn-sm bg-[#00BA9C] hover:text-[#03BD5E] text-white"
               >
                 Github
               </button>

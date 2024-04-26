@@ -1,30 +1,34 @@
-import { 
-    createUserWithEmailAndPassword,
-    signInWithEmailAndPassword,
-
+import {
+  createUserWithEmailAndPassword,
+  onAuthStateChanged,
+  signInWithEmailAndPassword,
+  signOut,
+  updateProfile,
 } from "firebase/auth";
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 import { auth } from "../firebase/firebase.init";
 import { toast } from "react-toastify";
+import { Navigate } from "react-router-dom";
 
-export const AuthContext = createContext(null)
+export const AuthContext = createContext(null);
 // eslint-disable-next-line react/prop-types
-const AuthProvider = ({children}) => {
-    const successNotify = () => toast.success("User Login Successfully!")
-    const errorNotify = () => toast.error("Invalid email or password!");
-    const [user, setUser] = useState(null)
-    // create user
-    const userRegister = (email, password) => {
-        return createUserWithEmailAndPassword( auth, email, password ).then(
-            (result) => {
-                const user = result.user;
-                if(user) {
-                    setUser(user)
-                }
-            }
-        )
-    }
-    // login user
+const AuthProvider = ({ children }) => {
+  const successNotify = () => toast.success("User Login Successfully!");
+  const errorNotify = () => toast.error("Invalid email or password!");
+  const [user, setUser] = useState(null);
+  // create user
+  const userRegister = (email, password) => {
+    return createUserWithEmailAndPassword(auth, email, password).then(
+      (result) => {
+        const user = result.user;
+        if (user) {
+          setUser(user);
+          return <Navigate to="/login"></Navigate>;
+        }
+      }
+    );
+  };
+  // login user
   const userLogin = (email, password) => {
     return signInWithEmailAndPassword(auth, email, password)
       .then(() => {
@@ -36,17 +40,45 @@ const AuthProvider = ({children}) => {
         });
       });
   };
-    const authInfo = {
-        userRegister,
-        userLogin,
-
-
-    }
-    return (
-        <div>
-            <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>
-        </div>
-    );
+  // logout user
+  const logOut = () => {
+    setUser(null);
+    return signOut(auth);
+  };
+//   update user
+const updateUserProfile = (name, url) => {
+    // setLoading(true)
+    return updateProfile(auth.currentUser, {
+      displayName: name,
+      photoURL: url,
+    });
+  };
+  useEffect(() => {
+    const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
+      if (currentUser) {
+        setUser(currentUser);
+        // setLoading(false);
+      } else {
+        setUser(null);
+        // setLoading(false);
+      }
+    });
+    return () => {
+      unSubscribe();
+    };
+  }, []);
+  const authInfo = {
+    user,
+    userRegister,
+    userLogin,
+    logOut,
+    updateUserProfile
+  };
+  return (
+    <div>
+      <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>
+    </div>
+  );
 };
 
 export default AuthProvider;
