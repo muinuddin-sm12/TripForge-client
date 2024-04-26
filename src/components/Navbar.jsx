@@ -1,20 +1,18 @@
 import { useContext, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "./AuthProvider";
-import { toast } from "react-toastify";
+import DropDownProfile from "./DropDownProfile";
 
 const Navbar = () => {
-  const { user, logOut } = useContext(AuthContext);
-  const notify = () => toast.warning("Successfully LogOut!");
-  console.log(user);
+  const { user } = useContext(AuthContext);
+  
+  // console.log(user);
   const [isOpen, setIsOpen] = useState(false);
+  const [openProfile, setOpenProfile] = useState(false)
   const toggleDropdown = () => {
     setIsOpen(!isOpen);
   };
-  const handleLogOut = async () => {
-    await logOut();
-    notify();
-  };
+
   return (
     <div className="navbar bg-base-100 max-w-[1536px] mx-auto px-4 md:px-10 py-5 mb-2">
       <div className="navbar-start">
@@ -65,7 +63,7 @@ const Navbar = () => {
               >
                 All Tourists Spot
               </NavLink>
-              {user &&
+              {user && (
                 <>
                   <NavLink
                     to="/add-tourists-spot"
@@ -78,8 +76,8 @@ const Navbar = () => {
                     Add Tourists Spot
                   </NavLink>
                 </>
-              }
-              {user &&
+              )}
+              {user && (
                 <>
                   <NavLink
                     to="/my-list"
@@ -92,7 +90,7 @@ const Navbar = () => {
                     My List
                   </NavLink>
                 </>
-              }
+              )}
             </ul>
           )}
         </div>
@@ -122,46 +120,41 @@ const Navbar = () => {
           >
             All Tourists Spot
           </NavLink>
-          {user&& <NavLink
-            to="/add-tourists-spot"
-            className={({ isActive }) =>
-              isActive
-                ? "text-[#03BD5E] border-b-2 border-b-[#03BD5E] px-2 py-1"
-                : "text-black"
-            }
-          >
-            Add Tourists Spot
-          </NavLink>}
-          {user && <NavLink
-            to="/my-list"
-            className={({ isActive }) =>
-              isActive
-                ? "text-[#03BD5E] border-b-2 border-b-[#03BD5E] px-2 py-1"
-                : "text-black"
-            }
-          >
-            My List
-          </NavLink>}
+          {user && (
+            <NavLink
+              to="/add-tourists-spot"
+              className={({ isActive }) =>
+                isActive
+                  ? "text-[#03BD5E] border-b-2 border-b-[#03BD5E] px-2 py-1"
+                  : "text-black"
+              }
+            >
+              Add Tourists Spot
+            </NavLink>
+          )}
+          {user && (
+            <NavLink
+              to="/my-list"
+              className={({ isActive }) =>
+                isActive
+                  ? "text-[#03BD5E] border-b-2 border-b-[#03BD5E] px-2 py-1"
+                  : "text-black"
+              }
+            >
+              My List
+            </NavLink>
+          )}
         </ul>
       </div>
       <div className="navbar-end">
         {user ? (
           <div className="flex items-center gap-2">
-            <div
-              className="w-12 h-12 rounded-full flex justify-center items-center  border-2 tooltip  tooltip-bottom"
-              data-tip={user?.displayName || "user name not found"}
-            >
+            <div onClick={()=>setOpenProfile(!openProfile)} className="w-12 h-12 cursor-pointer rounded-full flex justify-center items-center  border-2">
               <img
                 className="rounded-full"
                 src={user?.photoURL || "https://i.ibb.co/BwsjNp3/1057231.png"}
               />
             </div>
-            <button
-              onClick={handleLogOut}
-              className="btn btn-sm text-white text-base bg-[#00BA9C]"
-            >
-              Logout
-            </button>
           </div>
         ) : (
           <Link to="/login">
@@ -171,6 +164,9 @@ const Navbar = () => {
           </Link>
         )}
       </div>
+      {
+        openProfile && <DropDownProfile />
+      }
     </div>
   );
 };
