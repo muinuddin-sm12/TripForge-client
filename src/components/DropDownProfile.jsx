@@ -5,7 +5,7 @@ import { toast } from "react-toastify";
 
 const DropDownProfile = () => {
     const {user, logOut} = useContext(AuthContext)
-    console.log(user)
+    // console.log(user)
     const notify = () => toast.warning("Successfully LogOut!");
     const handleLogOut = async () => {
         await logOut();

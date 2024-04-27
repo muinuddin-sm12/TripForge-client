@@ -1,7 +1,10 @@
 import {
+  GoogleAuthProvider,
+  TwitterAuthProvider,
   createUserWithEmailAndPassword,
   onAuthStateChanged,
   signInWithEmailAndPassword,
+  signInWithPopup,
   signOut,
   updateProfile,
 } from "firebase/auth";
@@ -17,6 +20,9 @@ const AuthProvider = ({ children }) => {
   const errorNotify = () => toast.error("Invalid email or password!");
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true)
+  const googleProvider = new GoogleAuthProvider();
+  const twitterProvider = new TwitterAuthProvider();
+
   // create user
   const userRegister = (email, password) => {
     setLoading(true)
@@ -43,6 +49,16 @@ const AuthProvider = ({ children }) => {
         });
       });
   };
+    // google login
+    const googleLogin = () => {
+      setLoading(true);
+      return signInWithPopup(auth, googleProvider);
+    };
+    // twitter login
+    const twitterLogin = () => {
+      setLoading(true);
+      return signInWithPopup(auth, twitterProvider);
+    };
   // logout user
   const logOut = () => {
     setLoading(true)
@@ -75,6 +91,8 @@ const updateUserProfile = (name, url) => {
     user,
     userRegister,
     userLogin,
+    googleLogin,
+    twitterLogin,
     logOut,
     updateUserProfile,
     loading,
