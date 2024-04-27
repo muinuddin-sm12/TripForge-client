@@ -24,7 +24,6 @@ const ReviewSlide = () => {
         className="mySwiper"
       >
         <SwiperSlide>
-          <div className="h-[200px]">
             <div className="container flex flex-col w-full p-6 mx-auto divide-y rounded-md dark:divide-gray-300 dark:bg-gray-50 dark:text-gray-800">
               <div className="flex justify-between p-4">
                 <div className="flex space-x-4">
@@ -62,10 +61,8 @@ const ReviewSlide = () => {
                 
               </div>
             </div>
-          </div>
         </SwiperSlide>
         <SwiperSlide>
-        <div className="h-[200px]">
             <div className="container flex flex-col w-full p-6 mx-auto divide-y rounded-md dark:divide-gray-300 dark:bg-gray-50 dark:text-gray-800">
               <div className="flex justify-between p-4">
                 <div className="flex space-x-4">
@@ -103,10 +100,8 @@ const ReviewSlide = () => {
                 
               </div>
             </div>
-          </div>
         </SwiperSlide>
         <SwiperSlide>
-        <div className="h-[200px]">
             <div className="container flex flex-col w-full p-6 mx-auto divide-y rounded-md dark:divide-gray-300 dark:bg-gray-50 dark:text-gray-800">
               <div className="flex justify-between p-4">
                 <div className="flex space-x-4">
@@ -144,10 +139,8 @@ const ReviewSlide = () => {
                 
               </div>
             </div>
-          </div>
         </SwiperSlide>
         <SwiperSlide>
-        <div className="h-[200px]">
             <div className="container flex flex-col w-full p-6 mx-auto divide-y rounded-md dark:divide-gray-300 dark:bg-gray-50 dark:text-gray-800">
               <div className="flex justify-between p-4">
                 <div className="flex space-x-4">
@@ -185,7 +178,6 @@ const ReviewSlide = () => {
                 
               </div>
             </div>
-          </div>
         </SwiperSlide>
       </Swiper>
     </div>

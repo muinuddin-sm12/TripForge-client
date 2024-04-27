@@ -3,8 +3,8 @@ import ReviewSlide from "./ReviewSlide";
 
 const Review = () => {
   return (
-    <div>
-        <h2 className="w-full text-center text-2xl font-semibold mb-4">Review</h2>
+    <div className="w-full py-10">
+        <h1 className="text-4xl font-bold leading-none text-center sm:text-5xl text-gray-800 mb-12">Reviews</h1>
         <ReviewSlide/>
     </div>
   );
