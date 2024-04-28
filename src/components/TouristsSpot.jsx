@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const TouristsSpot = ({ infoData }) => {
   // console.log(infoData)
   const homeData = infoData.slice(0, 6);
-  console.log(homeData);
+  // console.log(homeData);
   return (
     <div className="max-w-[1536px] mx-auto px-4 md:px-10 my-20 ">
       <h1 className="text-2xl font-bold leading-none text-center sm:text-4xl mb-8 ">
@@ -35,7 +35,7 @@ const TouristsSpot = ({ infoData }) => {
             </div>
           </div>
           <Link
-            to="/viewDetails"
+            to={`/spotDetails/:${data._id}`}
             className="btn bg-[#00BA9C] text-white text-base"
           >
             View Details

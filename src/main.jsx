@@ -15,6 +15,7 @@ import MyList from './pages/MyList.jsx';
 import AuthProvider from './components/AuthProvider.jsx';
 import { ToastContainer } from 'react-toastify';
 import PrivateRoute from './components/PrivateRoute.jsx';
+import SpotDetails from './pages/SpotDetails.jsx';
 const router = createBrowserRouter([
   {
     path: "/",
@@ -37,6 +38,14 @@ const router = createBrowserRouter([
         path: '/all-tourists-spot',
         element: <AllTourist/>,
         loader: () => fetch('http://localhost:5000/spot-info')
+      },
+      {
+        path: '/spotDetails/:_id',
+        element: (
+          <PrivateRoute>
+            <SpotDetails/>
+          </PrivateRoute>
+        )
       },
       {
         path: '/add-tourists-spot',
