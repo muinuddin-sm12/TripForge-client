@@ -72,6 +72,7 @@ const Login = () => {
               <h3 className="font-medium">Or login with,</h3>
               <button className="btn hover:bg-white"><img onClick={() => handleSocialLogin(googleLogin)} className="h-6 cursor-pointer" src="/src/assets/images/google (1).png" alt="" /></button>
               <button className="btn hover:bg-white"><img onClick={() => handleSocialLogin(twitterLogin)} className="h-6 cursor-pointer" src="/src/assets/images/twitter.png" alt="" /></button>
+              {/* <button className="btn hover:bg-white"><img onClick={() => handleSocialLogin(githubLogin)} className="h-6 cursor-pointer" src="/src/assets/images/github.png" alt="" /></button> */}
             </div>
           </form>
         </div>

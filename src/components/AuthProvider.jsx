@@ -1,4 +1,5 @@
 import {
+  GithubAuthProvider,
   GoogleAuthProvider,
   TwitterAuthProvider,
   createUserWithEmailAndPassword,
@@ -22,6 +23,7 @@ const AuthProvider = ({ children }) => {
   const [loading, setLoading] = useState(true)
   const googleProvider = new GoogleAuthProvider();
   const twitterProvider = new TwitterAuthProvider();
+  const githubProvider = new GithubAuthProvider();
 
   // create user
   const userRegister = (email, password) => {
@@ -59,6 +61,11 @@ const AuthProvider = ({ children }) => {
       setLoading(true);
       return signInWithPopup(auth, twitterProvider);
     };
+    // github login
+    const githubLogin = () => {
+      setLoading(true);
+      return signInWithPopup(auth, githubProvider);
+    };
   // logout user
   const logOut = () => {
     setLoading(true)
@@ -93,6 +100,7 @@ const updateUserProfile = (name, url) => {
     userLogin,
     googleLogin,
     twitterLogin,
+    githubLogin,
     logOut,
     updateUserProfile,
     loading,

@@ -16,10 +16,12 @@ import AuthProvider from './components/AuthProvider.jsx';
 import { ToastContainer } from 'react-toastify';
 import PrivateRoute from './components/PrivateRoute.jsx';
 import SpotDetails from './pages/SpotDetails.jsx';
+import NotFoundPage from './pages/NotFoundPage.jsx';
 const router = createBrowserRouter([
   {
     path: "/",
     element: <MainLayout/>,
+    errorElement: <NotFoundPage/>,
     children: [
       {
         path: '/',

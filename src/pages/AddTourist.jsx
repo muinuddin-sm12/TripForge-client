@@ -1,9 +1,10 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { AuthContext } from "../components/AuthProvider";
 
 const AddTourist = () => {
   const { user } = useContext(AuthContext);
-//   console.log(user);
+  console.log(user.email);
+  const [readOnly] = useState(true);
 
   const handleForm = event => {
     event.preventDefault()
@@ -17,7 +18,7 @@ const AddTourist = () => {
     const season = form.season.value;
     const travelTime = form.travelTime.value;
     const totalVisitors = form.totalVisitors.value;
-    const email = user?.email;
+    const email = user?.email ;
     const userName = user?.displayName;
     const spotInfo = {img_url, spotName, countryName, location, description, cost, season, travelTime, totalVisitors, email, userName}
     console.log(spotInfo)
@@ -146,7 +147,7 @@ const AddTourist = () => {
                   placeholder={user?.email}
                   className="w-full py-2 pl-2 outline-none rounded-md "
                   required
-                  readOnly
+                  readOnly={user.email && readOnly}
                 />
               </div>
               <div className="col-span-full sm:col-span-2">
