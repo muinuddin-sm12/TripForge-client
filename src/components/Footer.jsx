@@ -73,9 +73,9 @@ const Footer = () => {
             We Are Here
           </div>
           <div className="flex justify-start space-x-3 mb-4">
-            <p>
+            <p className="lg:text-justify font-medium">
               Welcome to TripForge! Let us guide you in crafting unforgettable
-              journeys tailored to your desires. Start exploring today!
+              journeys tailored to your desires.
             </p>
           </div>
 
@@ -132,7 +132,7 @@ const Footer = () => {
       </div>
       {/* </div> */}
       <div className="py-6 text-sm text-center dark:text-gray-600">
-        © 1968 Company Co. All rights reserved.
+        © 2024 TripForge Co. All rights reserved.
       </div>
     </footer>
   );
