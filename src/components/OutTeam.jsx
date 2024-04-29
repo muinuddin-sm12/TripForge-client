@@ -3,7 +3,7 @@
 const OutTeam = () => {
     return (
         <section className=" max-w-[1536px] mx-auto px-4 md:px-10 my-20">
-	<div className="container bg-[#76efdb] flex flex-col items-center justify-center p-4 mx-auto space-y-8 sm:p-10">
+	<div className="container bg-gray-50 flex flex-col items-center justify-center p-4 mx-auto space-y-8 sm:p-10">
 		<h1 className="text-2xl font-bold leading-none text-center sm:text-4xl">Our team</h1>
 		<p className="max-w-2xl text-center dark:text-gray-600">Our team at TripForge is composed of passionate individuals who share a love for travel and a commitment to providing exceptional service to our clients!</p>
 		<div className="flex flex-row flex-wrap-reverse justify-center">
