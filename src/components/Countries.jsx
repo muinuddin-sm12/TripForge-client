@@ -1,11 +1,14 @@
+import { Bounce } from "react-awesome-reveal";
 import { Link } from "react-router-dom";
 
 const Countries = () => {
   return (
     <div className="max-w-[1536px] mx-auto px-4 md:px-10 my-20 ">
+      <Bounce>
       <h1 className="text-2xl font-bold leading-none text-center sm:text-4xl mb-8 ">
         Countries
       </h1>
+      </Bounce>
       <div className="flex flex-wrap justify-center gap-6">
         <Link to='/'>
         <div className="max-w-xs p-4 rounded-md shadow-md border ">

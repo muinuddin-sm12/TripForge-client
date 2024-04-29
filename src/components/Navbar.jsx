@@ -2,6 +2,7 @@ import { useContext, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "./AuthProvider";
 import DropDownProfile from "./DropDownProfile";
+import { Fade } from "react-awesome-reveal";
 
 const Navbar = () => {
   const { user } = useContext(AuthContext);
@@ -94,9 +95,11 @@ const Navbar = () => {
             </ul>
           )}
         </div>
+        <Fade>
         <Link to="/" className="text-2xl font-bold">
           <span className="text-[#03BD5E]">Trip</span>Forge
         </Link>
+        </Fade>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1 text-base flex items-center gap-8 font-medium">
