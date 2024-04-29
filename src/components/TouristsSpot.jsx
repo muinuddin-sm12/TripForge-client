@@ -42,7 +42,7 @@ const TouristsSpot = ({ infoData }) => {
               </div>
             </div>
             <Link
-              to={`/spotDetails/:${data._id}`}
+              to={`/spotDetails/${data._id}`}
               className="btn bg-[#00BA9C] text-white text-base"
             >
               View Details
