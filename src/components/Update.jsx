@@ -7,7 +7,6 @@ const Update = () => {
   const { id } = useParams();
 
   const [data, setData] = useState(null);
-    // const [updateData, setUpdateData] = use
 
   useEffect(() => {
     fetch(`https://b9a10-server-side-muinuddin-sm12.vercel.app/spot-info/${id}`)
@@ -15,7 +14,7 @@ const Update = () => {
       .then((data) => {
         setData(data);
       });
-  }, []);
+  }, [id]);
   const handleUpdate = event => {
     event.preventDefault();
     const form = event.target;
@@ -60,7 +59,7 @@ const Update = () => {
   if (!data) {
     return <span className="loading loading-ring loading-lg"></span>;
   }
-  console.log(data);
+  // console.log(data);
 
   return (
     <div className="max-w-[1036px] mx-auto px-4 md:px-10 my-20">
