@@ -1,9 +1,13 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../components/AuthProvider";
 import { toast } from "react-toastify";
 
 const Login = () => {
+
+  // useEffect(()=> {
+  //   window.location.reload()
+  // },[])
   
   const successNotify = () => toast.success("Login Successfully!");
   const location = useLocation();

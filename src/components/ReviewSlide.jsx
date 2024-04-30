@@ -29,7 +29,7 @@ const ReviewSlide = () => {
                 <div className="flex space-x-4">
                   <div>
                     <img
-                      src="/src/assets/images/r-4.jpg"
+                      src="https://i.ibb.co/dpNNHJD/r-4.jpg"
                       alt=""
                       className="object-cover w-12 h-12 rounded-full "
                     />
@@ -66,7 +66,7 @@ const ReviewSlide = () => {
                 <div className="flex space-x-4">
                   <div>
                     <img
-                      src="/src/assets/images/r-1.jpg"
+                      src="https://i.ibb.co/FwwG1G1/r-1.jpg"
                       alt=""
                       className="object-cover w-12 h-12 rounded-full dark:bg-gray-500"
                     />
@@ -103,7 +103,7 @@ const ReviewSlide = () => {
                 <div className="flex space-x-4">
                   <div>
                     <img
-                      src="/src/assets/images/r-3.jpg"
+                      src="https://i.ibb.co/zGH5qdg/r-3.jpg"
                       alt=""
                       className="object-cover w-12 h-12 rounded-full dark:bg-gray-500"
                     />
@@ -140,7 +140,7 @@ const ReviewSlide = () => {
                 <div className="flex space-x-4">
                   <div>
                     <img
-                      src="/src/assets/images/r-2.jpg"
+                      src="https://i.ibb.co/pWcRZtt/r-2.jpg"
                       alt=""
                       className="object-cover w-12 h-12 rounded-full dark:bg-gray-500"
                     />
