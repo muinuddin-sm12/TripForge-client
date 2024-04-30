@@ -70,10 +70,8 @@ const Login = () => {
 
             <div className="flex items-center py-3 gap-5">
               <h3 className="font-medium">Or login with,</h3>
-              <button className="btn hover:bg-white"><img onClick={() => handleSocialLogin(googleLogin)} className="h-6 cursor-pointer" src="/src/assets/images/google (1).png" alt="" /></button>
-              <button className="btn hover:bg-white"><img onClick={() => handleSocialLogin(twitterLogin)} className="h-6 cursor-pointer" src="/src/assets/images/twitter.png" alt="" /></button>
-              {/* <button className="btn hover:bg-white"><img onClick={() => handleSocialLogin(githubLogin)} className="h-6 cursor-pointer" src="/src/assets/images/github.png" alt="" /></button> */}
-            </div>
+              <button onClick={() => handleSocialLogin(googleLogin)} className="btn hover:bg-white">Google</button>
+              <button onClick={() => handleSocialLogin(twitterLogin)} className="btn hover:bg-white">Github</button>            </div>
           </form>
         </div>
       </div>
