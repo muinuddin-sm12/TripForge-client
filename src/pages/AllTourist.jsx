@@ -16,7 +16,7 @@ const AllTourist = () => {
   return (
     <div className="relative max-w-[1536px] mx-auto px-4 md:px-10 mt-40 my-20 flex flex-wrap justify-center gap-6">
       <details className="dropdown absolute  -top-32 right-[220px]">
-          <summary className="m-1 btn bg-[#23BE0A] text-white rounded-md">
+          <summary className="m-1 btn bg-[#14cf6f] text-white rounded-md">
             Sort By :
           </summary>
           <ul className="p-2 shadow menu dropdown-content z-[1] bg-base-100 rounded-box w-52">

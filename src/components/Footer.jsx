@@ -3,8 +3,7 @@ import { SiMinutemailer } from "react-icons/si";
 import { IoLocationSharp } from "react-icons/io5";
 const Footer = () => {
   return (
-    <footer className="px-4 divide-y dark:bg-gray-100 dark:text-gray-800">
-      {/* <div className="container flex flex-col justify-between py-10 mx-auto space-y-8 lg:flex-row lg:space-y-0"> */}
+    <footer className="px-4 divide-y border-t rounded-t-[50px]">
       <div className="text-sm container flex flex-col justify-between py-10 mx-auto space-y-8 md:flex-row lg:space-y-0  lg:w-2/3 sm:grid-cols-4">
         <div className="flex-1">
           <a
@@ -12,13 +11,13 @@ const Footer = () => {
             href="#"
             className="flex justify-center space-x-3 lg:justify-start"
           >
-            <span className="self-center text-3xl font-semibold">
+            <span className="self-center text-2xl font-semibold">
               TripForge
             </span>
           </a>
         </div>
         <div className="flex-1">
-          <h3 className="dark:text-gray-900 text-lg font-semibold mb-2">
+          <h3 className=" text-lg font-semibold mb-2">
             Quick Link
           </h3>
           <ul className="space-y-1">
@@ -69,7 +68,7 @@ const Footer = () => {
           </ul>
         </div>
         <div className="flex-1">
-          <div className="dark:text-gray-900 text-lg font-semibold mb-2">
+          <div className=" text-lg font-semibold mb-2">
             We Are Here
           </div>
           <div className="flex justify-start space-x-3 mb-4">
@@ -79,7 +78,7 @@ const Footer = () => {
             </p>
           </div>
 
-          <div className="dark:text-gray-900 text-lg font-semibold mb-2">
+          <div className=" text-lg font-semibold mb-2">
             Social Media
           </div>
           <div className="flex justify-start space-x-3">
@@ -131,7 +130,7 @@ const Footer = () => {
         </div>
       </div>
       {/* </div> */}
-      <div className="py-6 text-sm text-center dark:text-gray-600">
+      <div className="py-6 text-sm text-center ">
         © 2024 TripForge Co. All rights reserved.
       </div>
     </footer>

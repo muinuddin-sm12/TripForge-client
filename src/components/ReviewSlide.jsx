@@ -24,19 +24,19 @@ const ReviewSlide = () => {
         className="mySwiper"
       >
         <SwiperSlide>
-            <div className="container flex flex-col w-full p-6 mx-auto divide-y rounded-md dark:divide-gray-300 dark:bg-gray-50 dark:text-gray-800">
+            <div className="container flex flex-col w-full p-6 mx-auto divide-y rounded-md border">
               <div className="flex justify-between p-4">
                 <div className="flex space-x-4">
                   <div>
                     <img
-                      src="https://source.unsplash.com/100x100/?portrait"
+                      src="/src/assets/images/r-4.jpg"
                       alt=""
-                      className="object-cover w-12 h-12 rounded-full dark:bg-gray-500"
+                      className="object-cover w-12 h-12 rounded-full "
                     />
                   </div>
                   <div>
-                    <h4 className="font-bold">Emily Rodriguez</h4>
-                    <span className="text-xs dark:text-gray-600">
+                    <h4 className="font-bold ">Emily Rodriguez</h4>
+                    <span className="text-xs">
                       58 minutes ago
                     </span>
                   </div>
@@ -52,7 +52,7 @@ const ReviewSlide = () => {
                   <span className="text-xl font-bold">4.5</span>
                 </div>
               </div>
-              <div className="p-4 space-y-2 text-sm dark:text-gray-600">
+              <div className="p-4 space-y-2 text-sm dark:text-gray-300">
                 <p>
                 TripForge made planning my dream vacation a breeze! Their expert team provided personalized recommendations and excellent customer service.
                 </p>
@@ -61,12 +61,12 @@ const ReviewSlide = () => {
             </div>
         </SwiperSlide>
         <SwiperSlide>
-            <div className="container flex flex-col w-full p-6 mx-auto divide-y rounded-md dark:divide-gray-300 dark:bg-gray-50 dark:text-gray-800">
+            <div className="container flex flex-col w-full p-6 mx-auto divide-y rounded-md border">
               <div className="flex justify-between p-4">
                 <div className="flex space-x-4">
                   <div>
                     <img
-                      src="https://source.unsplash.com/100x100/?portrait"
+                      src="/src/assets/images/r-1.jpg"
                       alt=""
                       className="object-cover w-12 h-12 rounded-full dark:bg-gray-500"
                     />
@@ -98,12 +98,12 @@ const ReviewSlide = () => {
             </div>
         </SwiperSlide>
         <SwiperSlide>
-            <div className="container flex flex-col w-full p-6 mx-auto divide-y rounded-md dark:divide-gray-300 dark:bg-gray-50 dark:text-gray-800">
+            <div className="container flex flex-col w-full p-6 mx-auto divide-y rounded-md border">
               <div className="flex justify-between p-4">
                 <div className="flex space-x-4">
                   <div>
                     <img
-                      src="https://source.unsplash.com/100x100/?portrait"
+                      src="/src/assets/images/r-3.jpg"
                       alt=""
                       className="object-cover w-12 h-12 rounded-full dark:bg-gray-500"
                     />
@@ -135,12 +135,12 @@ const ReviewSlide = () => {
             </div>
         </SwiperSlide>
         <SwiperSlide>
-            <div className="container flex flex-col w-full p-6 mx-auto divide-y rounded-md dark:divide-gray-300 dark:bg-gray-50 dark:text-gray-800">
+            <div className="container flex flex-col w-full p-6 mx-auto divide-y rounded-md border">
               <div className="flex justify-between p-4">
                 <div className="flex space-x-4">
                   <div>
                     <img
-                      src="https://source.unsplash.com/100x100/?portrait"
+                      src="/src/assets/images/r-2.jpg"
                       alt=""
                       className="object-cover w-12 h-12 rounded-full dark:bg-gray-500"
                     />

@@ -26,7 +26,7 @@ const router = createBrowserRouter([
       {
         path: '/',
         element: <Home/>,
-        loader: () => fetch('http://localhost:5000/spot-info')
+        loader: () => fetch('https://b9a10-server-side-muinuddin-sm12.vercel.app/spot-info')
       },
       {
         path: '/login',
@@ -39,7 +39,7 @@ const router = createBrowserRouter([
       {
         path: '/all-tourists-spot',
         element: <AllTourist/>,
-        loader: () => fetch('http://localhost:5000/spot-info')
+        loader: () => fetch('https://b9a10-server-side-muinuddin-sm12.vercel.app/spot-info')
       },
       {
         path: '/spotDetails/:id',

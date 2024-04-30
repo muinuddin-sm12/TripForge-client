@@ -1,10 +1,12 @@
 import { useContext, useState } from "react";
 import { AuthContext } from "../components/AuthProvider";
+import { toast } from "react-toastify";
 
 const AddTourist = () => {
   const { user } = useContext(AuthContext);
-  console.log(user.email);
+  // console.log(user.email);
   const [readOnly] = useState(true);
+  const successNotify = () => toast.success("Successfully Added!");
 
   const handleForm = event => {
     event.preventDefault()
@@ -21,9 +23,9 @@ const AddTourist = () => {
     const email = user?.email ;
     const userName = user?.displayName;
     const spotInfo = {img_url, spotName, countryName, location, description, cost, season, travelTime, totalVisitors, email, userName}
-    console.log(spotInfo)
+    // console.log(spotInfo)
 
-    fetch('http://localhost:5000/spot-info', {
+    fetch('https://b9a10-server-side-muinuddin-sm12.vercel.app/spot-info', {
       method: "POST",
       headers: {
         'content-type' : 'application/json'
@@ -31,8 +33,11 @@ const AddTourist = () => {
       body: JSON.stringify(spotInfo)
     })
     .then(res => res.json())
-    .then(data => {
-      console.log(data)
+    .then(() => {
+      // console.log(data)
+      form.reset();
+      successNotify()
+
     })
   }
 
@@ -44,7 +49,7 @@ const AddTourist = () => {
           action=""
           className="container flex flex-col mx-auto space-y-12"
         >
-          <fieldset className="grid grid-cols-4 gap-6 p-6 rounded-2xl shadow-sm dark:bg-gray-100">
+          <fieldset className="grid grid-cols-4 gap-6 p-6 rounded-2xl shadow-md  dark:bg-gray-100">
             <div className="space-y-2 col-span-full lg:col-span-1">
               <p className="font-semibold text-xl">Spot Details</p>
             </div>
@@ -55,7 +60,7 @@ const AddTourist = () => {
                   type="text"
                   name="img_url"
                   placeholder="image url"
-                  className="w-full py-2 pl-2 outline-none rounded-md "
+                  className="w-full py-2 pl-2 outline-none border rounded-md "
                   required
                 />
               </div>
@@ -65,7 +70,7 @@ const AddTourist = () => {
                   type="text"
                   name="spotName"
                   placeholder="tourists spot name"
-                  className="w-full py-2 pl-2 outline-none rounded-md "
+                  className="w-full py-2 pl-2 outline-none border rounded-md "
                   required
                 />
               </div>
@@ -75,7 +80,7 @@ const AddTourist = () => {
                   type="text"
                   name="countryName"
                   placeholder="country name"
-                  className="w-full py-2 pl-2 outline-none rounded-md "
+                  className="w-full py-2 pl-2 outline-none border rounded-md "
                   required
                 />
               </div>
@@ -85,7 +90,7 @@ const AddTourist = () => {
                   type="text"
                   name="location"
                   placeholder="location"
-                  className="w-full py-2 pl-2 outline-none rounded-md "
+                  className="w-full py-2 pl-2 outline-none border rounded-md "
                   required
                 />
               </div>
@@ -95,7 +100,7 @@ const AddTourist = () => {
                   type="text"
                   name="description"
                   placeholder="add short description"
-                  className="w-full py-4 pl-2 outline-none rounded-md "
+                  className="w-full py-4 pl-2 outline-none border rounded-md "
                   required
                 />
               </div>
@@ -105,7 +110,7 @@ const AddTourist = () => {
                   type="text"
                   name="cost"
                   placeholder="average cost"
-                  className="w-full py-2 pl-2 outline-none rounded-md "
+                  className="w-full py-2 pl-2 outline-none border rounded-md "
                   required
                 />
               </div>
@@ -115,7 +120,7 @@ const AddTourist = () => {
                   type="text"
                   name="season"
                   placeholder="summer/winter"
-                  className="w-full py-2 pl-2 outline-none rounded-md "
+                  className="w-full py-2 pl-2 outline-none border rounded-md "
                   required
                 />
               </div>
@@ -125,7 +130,7 @@ const AddTourist = () => {
                   type="text"
                   name="travelTime"
                   placeholder="days"
-                  className="w-full py-2 pl-2 outline-none rounded-md "
+                  className="w-full py-2 pl-2 outline-none border rounded-md "
                   required
                 />
               </div>
@@ -135,7 +140,7 @@ const AddTourist = () => {
                   type="text"
                   placeholder="total visitors"
                   name="totalVisitors"
-                  className="w-full py-2 pl-2 outline-none rounded-md "
+                  className="w-full py-2 pl-2 outline-none border rounded-md "
                   required
                 />
               </div>
@@ -145,7 +150,7 @@ const AddTourist = () => {
                   type="email"
                   name="email"
                   placeholder={user?.email}
-                  className="w-full py-2 pl-2 outline-none rounded-md "
+                  className="w-full py-2 pl-2 outline-none border rounded-md "
                   required
                   readOnly={user.email && readOnly}
                 />
@@ -156,12 +161,12 @@ const AddTourist = () => {
                   type="text"
                   name="user_name"
                   placeholder={user?.displayName}
-                  className="w-full py-2 pl-2 outline-none rounded-md "
+                  className="w-full py-2 pl-2 outline-none border rounded-md "
                   required
                   readOnly
                 />
               </div>
-              <input className="btn bg-[#00BA9C] text-white font-medium" type="submit" value="Add" />
+              <input className="btn col-span-2 lg:col-span-1 bg-[#00BA9C] text-white font-medium" type="submit" value="Add" />
             </div>
           </fieldset>
         </form>

@@ -11,7 +11,7 @@ const SpotDetails = () => {
   //   console.log(id);
   const [spot, setSpot] = useState(null);
   useEffect(() => {
-    fetch(`http://localhost:5000/spot-info/${id}`)
+    fetch(`https://b9a10-server-side-muinuddin-sm12.vercel.app/spot-info/${id}`)
       .then((res) => res.json())
       .then((data) => {
         setSpot(data);
@@ -71,7 +71,7 @@ const SpotDetails = () => {
           <p className="mt-3 text-justify ">{spot.description}</p>
           <p className="mt-3 text-sm text-zinc-500">
             Best Season to Visit:{" "}
-            <span className="text-zinc-600 font-medium">{spot.season}</span>
+            <span className="text-zinc-400 font-medium">{spot.season}</span>
           </p>
         </div>
       </div>

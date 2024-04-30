@@ -5,6 +5,9 @@ import { Link } from "react-router-dom";
 const TouristsSpot = ({ infoData }) => {
   // console.log(infoData)
   const homeData = infoData.slice(0, 6);
+  if(!homeData){
+    return <span className="loading loading-ring loading-lg"></span>
+  }
   // console.log(homeData);
   return (
     <div className="max-w-[1536px] mx-auto px-4 md:px-10 my-20 ">
@@ -17,7 +20,7 @@ const TouristsSpot = ({ infoData }) => {
         {homeData.map((data) => (
           <div
             key={data._id}
-            className="max-w-xs p-4 rounded-md shadow-md dark:bg-gray-50 dark:text-gray-900"
+            className="max-w-xs p-4 rounded-md shadow-md border"
           >
             <img
               src={data.img_url}

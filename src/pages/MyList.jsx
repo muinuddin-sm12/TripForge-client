@@ -5,18 +5,26 @@ import Swal from "sweetalert2";
 const MyList = () => {
   const { user } = useContext(AuthContext);
   const [myData, setMyData] = useState([]);
+
+
+
   useEffect(() => {
-    fetch("http://localhost:5000/spot-info")
+    fetch("https://b9a10-server-side-muinuddin-sm12.vercel.app/spot-info")
       .then((res) => res.json())
       .then((data) => {
         const filterData = data.filter((data) => data.email == user.email);
         setMyData(filterData);
       })
-      .catch((error) => {
-        console.error("Error fetching data:", error);
-      });
   }, [user.email]);
   // console.log(myData)
+  if(!myData){
+    return (
+      <div className="h-[calc(100vh-441px)] flex justify-center items-center">
+        <span className="loading loading-ring loading-lg text-[#03BD5E]"></span>
+      </div>
+    );
+  }
+
 
   const handleDelete = async (_id) => {
     Swal.fire({
@@ -35,7 +43,7 @@ const MyList = () => {
           icon: "success",
         });
         
-        fetch(`http://localhost:5000/spot-info/${_id}`, {
+        fetch(`https://b9a10-server-side-muinuddin-sm12.vercel.app/spot-info/${_id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())
@@ -49,11 +57,11 @@ const MyList = () => {
   };
   return (
     <div>
-      <div className="overflow-x-auto max-w-[700px] h-[calc(100vh-499px)] mx-auto mt-14">
+      <div className="overflow-x-auto max-w-[700px] min-h-[calc(100vh-499px)] mx-auto mt-14 mb-20">
         <table className="table">
           {/* head */}
           <thead>
-            <tr className="text-base ">My List :</tr>
+            <tr className="text-base ">My List : {myData.length}</tr>
           </thead>
           <tbody>
             {/* row 1 */}

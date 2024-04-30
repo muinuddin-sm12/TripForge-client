@@ -3,6 +3,7 @@ import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "./AuthProvider";
 import DropDownProfile from "./DropDownProfile";
 import { Fade } from "react-awesome-reveal";
+import ThemeControlerBtn from "./ThemeControlerBtn";
 
 const Navbar = () => {
   const { user } = useContext(AuthContext);
@@ -42,14 +43,14 @@ const Navbar = () => {
           {isOpen && (
             <ul
               tabIndex={0}
-              className="menu menu-sm space-y-2 dropdown-content mt-3 z-[100] p-4 shadow bg-base-100 rounded-box w-40"
+              className="menu menu-sm space-y-2 dropdown-content mt-3 z-[100] p-4 shadow bg-base-100 rounded-box w-40 "
             >
               <NavLink
                 to="/"
                 className={({ isActive }) =>
                   isActive
                     ? "text-[#03BD5E] border border-[#03BD5E] rounded-md px-2 py-1"
-                    : "text-black"
+                    : ""
                 }
               >
                 Home
@@ -59,7 +60,7 @@ const Navbar = () => {
                 className={({ isActive }) =>
                   isActive
                     ? "text-[#03BD5E] border border-[#03BD5E] rounded-md px-2 py-1"
-                    : "text-black"
+                    : ""
                 }
               >
                 All Tourists Spot
@@ -71,7 +72,7 @@ const Navbar = () => {
                     className={({ isActive }) =>
                       isActive
                         ? "text-[#03BD5E] border border-[#03BD5E] rounded-md px-2 py-1"
-                        : "text-black"
+                        : ""
                     }
                   >
                     Add Tourists Spot
@@ -85,7 +86,7 @@ const Navbar = () => {
                     className={({ isActive }) =>
                       isActive
                         ? "text-[#03BD5E] border border-[#03BD5E] rounded-md px-2 py-1"
-                        : "text-black"
+                        : ""
                     }
                   >
                     My List
@@ -108,7 +109,7 @@ const Navbar = () => {
             className={({ isActive }) =>
               isActive
                 ? "text-[#03BD5E] border-b-2 border-b-[#03BD5E] px-2 py-1"
-                : "text-black"
+                : ""
             }
           >
             Home
@@ -118,7 +119,7 @@ const Navbar = () => {
             className={({ isActive }) =>
               isActive
                 ? "text-[#03BD5E] border-b-2 border-b-[#03BD5E] px-2 py-1"
-                : "text-black"
+                : ""
             }
           >
             All Tourists Spot
@@ -129,7 +130,7 @@ const Navbar = () => {
               className={({ isActive }) =>
                 isActive
                   ? "text-[#03BD5E] border-b-2 border-b-[#03BD5E] px-2 py-1"
-                  : "text-black"
+                  : ""
               }
             >
               Add Tourists Spot
@@ -141,7 +142,7 @@ const Navbar = () => {
               className={({ isActive }) =>
                 isActive
                   ? "text-[#03BD5E] border-b-2 border-b-[#03BD5E] px-2 py-1"
-                  : "text-black"
+                  : ""
               }
             >
               My List
@@ -150,6 +151,9 @@ const Navbar = () => {
         </ul>
       </div>
       <div className="navbar-end">
+        <div className="mr-4 mt-2">
+        <ThemeControlerBtn/>
+        </div>
         {user ? (
           <div className="flex items-center gap-2">
             <div onClick={()=>setOpenProfile(!openProfile)} className="w-12 h-12 cursor-pointer rounded-full flex justify-center items-center  border-2">
