@@ -22,8 +22,6 @@ const AllTourist = () => {
           <ul className="p-2 shadow menu dropdown-content z-[1] bg-base-100 rounded-box w-52">
             <li
               onClick={() => handleSorting("cost")}
-              className="tooltip"
-              data-tip="Please Double Click!"
             >
               <a>Average Cost</a>
             </li>
