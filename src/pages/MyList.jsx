@@ -1,6 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../components/AuthProvider";
 import Swal from "sweetalert2";
+import { Link } from "react-router-dom";
 
 const MyList = () => {
   const { user } = useContext(AuthContext);
@@ -24,8 +25,6 @@ const MyList = () => {
       </div>
     );
   }
-
-
   const handleDelete = async (_id) => {
     Swal.fire({
       title: "Are you sure?",
@@ -55,6 +54,16 @@ const MyList = () => {
       }
     });
   };
+  // const handleUpdate = async (_id) => {
+  //   fetch(`https://b9a10-server-side-muinuddin-sm12.vercel.app/spot-info/${_id}`, {
+  //         method: "PUT",
+  //       })
+  //         .then((res) => res.json())
+  //         .then(async () => {
+  //           const updatedData = myData.filter((data) => data._id !== _id);
+  //           await window.location.reload();
+  //         });
+  // }
   return (
     <div>
       <div className="overflow-x-auto max-w-[700px] min-h-[calc(100vh-499px)] mx-auto mt-14 mb-20">
@@ -85,9 +94,11 @@ const MyList = () => {
                       </div>
                     </div>
                     <div className="flex items-center gap-3">
+                      <Link to={`/update/${data._id}`}>
                       <button className="btn btn-sm bg-[#00BA9C] text-white">
                         Update
                       </button>
+                      </Link>
                       <button
                         onClick={() => handleDelete(data._id)}
                         className="btn btn-sm bg-rose-500 text-white"

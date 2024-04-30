@@ -17,6 +17,7 @@ import { ToastContainer } from 'react-toastify';
 import PrivateRoute from './components/PrivateRoute.jsx';
 import SpotDetails from './pages/SpotDetails.jsx';
 import NotFoundPage from './pages/NotFoundPage.jsx';
+import Update from './components/Update.jsx';
 const router = createBrowserRouter([
   {
     path: "/",
@@ -46,6 +47,14 @@ const router = createBrowserRouter([
         element: (
           <PrivateRoute>
             <SpotDetails/>
+          </PrivateRoute>
+        )
+      },
+      {
+        path: '/update/:id',
+        element : (
+          <PrivateRoute>
+            <Update/>
           </PrivateRoute>
         )
       },
