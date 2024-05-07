@@ -16,7 +16,7 @@ const Navbar = () => {
   };
 
   return (
-    <div className="navbar bg-base-100 max-w-[1536px] mx-auto px-10 py-5 mb-2">
+    <div className="navbar bg-base-100 max-w-[1536px] mx-auto px-4 md:px-10 py-5 mb-2">
       <div className="navbar-start">
         <div className="dropdown">
           <div
@@ -171,7 +171,7 @@ const Navbar = () => {
             </button>
           </Link>
             <Link to="/register">
-            <button className="btn  text-base text-white bg-[#00BA9C]">
+            <button className="btn hidden md:block text-base text-white bg-[#00BA9C]">
               Register
             </button>
           </Link>
