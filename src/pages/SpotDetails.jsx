@@ -11,7 +11,7 @@ const SpotDetails = () => {
   //   console.log(id);
   const [spot, setSpot] = useState(null);
   useEffect(() => {
-    fetch(`https://b9a10-server-side-muinuddin-sm12.vercel.app/spot-info/${id}`)
+    fetch(`https://b9a10-server-side-muinuddin-sm12-three.vercel.app/spot-info/${id}`)
       .then((res) => res.json())
       .then((data) => {
         setSpot(data);

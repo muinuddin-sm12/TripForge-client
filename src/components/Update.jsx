@@ -9,7 +9,7 @@ const Update = () => {
   const [data, setData] = useState(null);
 
   useEffect(() => {
-    fetch(`https://b9a10-server-side-muinuddin-sm12.vercel.app/spot-info/${id}`)
+    fetch(`https://b9a10-server-side-muinuddin-sm12-three.vercel.app/spot-info/${id}`)
       .then((res) => res.json())
       .then((data) => {
         setData(data);
@@ -42,7 +42,7 @@ const Update = () => {
       email,
       userName,
     };
-    fetch(`https://b9a10-server-side-muinuddin-sm12.vercel.app/spot-info/${id}`, {
+    fetch(`https://b9a10-server-side-muinuddin-sm12-three.vercel.app/spot-info/${id}`, {
       method: "PUT",
       headers: {
         'content-type' : 'application/json'

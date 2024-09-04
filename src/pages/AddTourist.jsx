@@ -37,7 +37,7 @@ const AddTourist = () => {
     };
     console.log(spotInfo)
 
-    fetch("https://b9a10-server-side-muinuddin-sm12.vercel.app/spot-info", {
+    fetch("https://b9a10-server-side-muinuddin-sm12-three.vercel.app/spot-info", {
       method: "POST",
       headers: {
         "content-type": "application/json",

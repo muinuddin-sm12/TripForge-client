@@ -10,7 +10,7 @@ const MyList = () => {
 
 
   useEffect(() => {
-    fetch("https://b9a10-server-side-muinuddin-sm12.vercel.app/spot-info")
+    fetch("https://b9a10-server-side-muinuddin-sm12-three.vercel.app/spot-info")
       .then((res) => res.json())
       .then((data) => {
         const filterData = data.filter((data) => data.email == user.email);
@@ -42,7 +42,7 @@ const MyList = () => {
           icon: "success",
         });
         
-        fetch(`https://b9a10-server-side-muinuddin-sm12.vercel.app/spot-info/${_id}`, {
+        fetch(`https://b9a10-server-side-muinuddin-sm12-three.vercel.app/spot-info/${_id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())
@@ -55,7 +55,7 @@ const MyList = () => {
     });
   };
   // const handleUpdate = async (_id) => {
-  //   fetch(`https://b9a10-server-side-muinuddin-sm12.vercel.app/spot-info/${_id}`, {
+  //   fetch(`https://b9a10-server-side-muinuddin-sm12-three.vercel.app/spot-info/${_id}`, {
   //         method: "PUT",
   //       })
   //         .then((res) => res.json())
