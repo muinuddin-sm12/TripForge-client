@@ -32,7 +32,7 @@ const Login = () => {
   return (
     <div
       data-aos="zoom-in"
-      className="py-32 flex justify-center items-center "
+      className="pt-16 pb-48 flex justify-center items-center "
     >
       <div className="hero">
         <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
